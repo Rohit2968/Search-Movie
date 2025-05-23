@@ -11,7 +11,7 @@ function Favourites() {
                 <h2>Your Favourites</h2>
                 <div className="movies-grid">
                     {favourites.map((movie) => ( // Use () to return JSX
-                        <MovieCard movie={movie} key={movie.id} />
+                        <MovieCard movie={movie} key={movie.imdbID} />
                     ))}
                 </div>
             </div>
