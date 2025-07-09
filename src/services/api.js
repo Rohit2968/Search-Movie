@@ -1,17 +1,18 @@
-const API_KEY = "ad9d1eac75bf5f7185626fb3c0ddfd38";
-const BASE_URL = "https://api.themoviedb.org/3";
+import { RANDOM_TITLES } from "./randomTitles";
 
+const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
+const BASE_URL = import.meta.env.VITE_OMDB_BASE_URL;
 
 export const getPopularMovies = async () => {
-    const response = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}`)
-    const data = await response.json()
-    return data.results
-}
+  const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=${encodeURIComponent(RANDOM_TITLES[0])}`);
+  const data = await response.json();
+  return data.Response === "True" ? data.Search : [];
+};
 
 export const searchMovies = async (query) => {
-    const response = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(
-        query
-    )}`)
-    const data = await response.json()
-    return data.results
-}
+  const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=${encodeURIComponent(query)}`);
+  const data = await response.json();
+  return data.Response === "True" ? data.Search : [];
+};
+
+export { API_KEY, BASE_URL };
