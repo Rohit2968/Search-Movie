@@ -68,7 +68,7 @@ function Home() {   // .map is used to iterate over all these movies
                     {movies.map((movie) =>
                     // movie.title.toLowerCase().startsWith(searchQuery) && // Will Use API Not Manually{Above code for the page will be re-rendered upon searching based on alphabets/movie titles}
                     (
-                        <MovieCard movie={movie} key={movie.id} />
+                        <MovieCard key={movie.imdbID} movie={movie} />
                     )
                     )}
                 </div>

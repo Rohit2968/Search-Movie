@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <MovieProvider> {/* Wrap App inside MovieProvider */}
         <App />
-        <Analytics />
+        <Analytics debug={false} />
       </MovieProvider>
     </BrowserRouter>
   </StrictMode>,
